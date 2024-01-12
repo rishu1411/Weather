@@ -31,19 +31,21 @@ export default function WeatherProvider({ children }) {
     
     
 
-    onkeydown = (ev) => {
-        if (ev.key === 'Enter') {
-            let regex = /^[a-zA-Z]+$/;
-            if (regex.test(location)) {
-                setCity(location)
-                setLocation('')
-                setError('')
+    useEffect(() => {
+        document.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Enter') {
+                let regex = /^[a-zA-Z]+$/;
+                if (regex.test(location)) {
+                    setCity(location)
+                    setLocation('')
+                    setError('')
+                }
             }
             else {
-                setError('Invalid City Name')
+             setError('Invalid city name')   
             }
-        }
-    }
+        })
+    })
 
   return (
       <WeatherContext.Provider value={{location,setLocation,City,Weather,loading,setCity,setError,error}}>{ children}</WeatherContext.Provider>

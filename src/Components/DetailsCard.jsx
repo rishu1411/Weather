@@ -59,7 +59,7 @@ let feelsLike,POP,windSpeed,humidity
               <div className=''>
                 {loading&& <Skeleton count={1}/> ||
 
-                  <span className='flex items-center text-sm gap-x-4'><Image src={item.icon} slt='Thermometer' height={25} />{ item.title}</span>
+                  <span className='flex items-center text-sm gap-x-4'><Image src={item.icon} alt='Thermometer' height={25} />{ item.title}</span>
                 }
               </div>
               {
