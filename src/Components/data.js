@@ -40,7 +40,7 @@ export const dayBG = {
     Storm: 'bg-[url(../CardBg/Storm.png)]',
 }
 export const nightBG = {
-    Clear: 'bg-[url(../CardBg/ClearNight.png)]',
+    Clear: 'bg-[url(../CardBg/Night.png)]',
     Clouds: 'bg-[url(../CardBg/CloudyNight.png)]',
     FewClouds: 'bg-[url(../CardBg/FewCloudsNight.png)]',
     Rain: 'bg-[url(../CardBg/RainNight.png)]',
