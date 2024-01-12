@@ -22,6 +22,20 @@ export default function () {
             setError('Invalid city name')
         }
     }
+
+    const handleKeyDown = (ev) => {
+        if (ev.key === 'Enter') {
+            let regex = /^[a-zA-Z]+$/;
+                if (regex.test(location)) {
+                    setCity(location)
+                    setLocation('')
+                    setError('')
+                }
+        }
+        else {
+            setError('Invalid car')   
+           }
+    }
    
     return (
       <div className='flex gap-x-2'>
@@ -33,7 +47,7 @@ export default function () {
             <div className='flex items-center'>
                 {
                     loading && <Skeleton count={1} /> || 
-                    <input type="text" placeholder='Search location' value={location} onChange={(e)=> setLocation(e.target.value)} className='bg-gray-800 p-2 h-11 rounded-tl-md rounded-bl-md focus:outline-none  text-gray-400 border-none w-[50vw] sm:w-[60vw] md:w-[70vw] lg:w-[35vw]' />
+                    <input type="text" placeholder='Search location' value={location} onChange={(e)=> setLocation(e.target.value)} className='bg-gray-800 p-2 h-11 rounded-tl-md rounded-bl-md focus:outline-none  text-gray-400 border-none w-[50vw] sm:w-[60vw] md:w-[70vw] lg:w-[35vw]' onKeyDown={(ev)=> handleKeyDown(ev) } />
                 }
                 {
                     loading && <Skeleton count={1} /> || 

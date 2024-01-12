@@ -7,7 +7,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { nightBG,dayBG,nightSVG,daySVG } from './data'
 
 export default function InfoCard() {
-  const { Weather, loading,error} = useContext(WeatherContext)
+  const { Weather, loading,error,City} = useContext(WeatherContext)
   const [BG,setBG] = useState('')
   const [SVG, setSVG] = useState('')
  
@@ -89,7 +89,7 @@ export default function InfoCard() {
             }
             {loading && <Skeleton /> ||
               
-              error ? <h3 className='text-2xl text-red-500'>{ error}</h3> :
+              error && !City? <h3 className='text-2xl text-red-500'>{ error}</h3> :
               <h3 className='text-2xl'>{city}</h3>
             }
             {

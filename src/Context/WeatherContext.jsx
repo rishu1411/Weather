@@ -23,7 +23,7 @@ export default function WeatherProvider({ children }) {
             }
             catch (err) {
                 console.log(`Error ${err}`)
-                setError('Invalid city name')
+                setError('Invalid city')
             }
         }
         fetchWeather()
@@ -31,21 +31,24 @@ export default function WeatherProvider({ children }) {
     
     
 
-    useEffect(() => {
-        document.addEventListener('keydown', (ev) => {
-            if (ev.key === 'Enter') {
-                let regex = /^[a-zA-Z]+$/;
-                if (regex.test(location)) {
-                    setCity(location)
-                    setLocation('')
-                    setError('')
-                }
-            }
-            else {
-             setError('Invalid city name')   
-            }
-        })
-    })
+    // useEffect(() => {
+    //     document.onkeydown = (ev){
+    //         if (ev.key === 'Enter') {
+    //             let regex = /^[a-zA-Z]+$/;
+    //             if (regex.test(location)) {
+    //                 setCity(location)
+    //                 setLocation('')
+    //                 setError('')
+    //             }
+    //         }
+    //         else {
+    //          setError('Invalid car')   
+    //         }
+    //     }
+    //     document.addEventListener('keydown', (ev) => {
+           
+    //     })
+    // })
 
   return (
       <WeatherContext.Provider value={{location,setLocation,City,Weather,loading,setCity,setError,error}}>{ children}</WeatherContext.Provider>
