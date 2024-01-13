@@ -23,14 +23,19 @@ const [Obj,setObj] = useState('')
         else {
             setObj(nightSVG)
         }
-    },[foreCast])
+    }, [foreCast])
+  
   useEffect(() => {
     if (Weather.list) {
       let lis = []
-      for (let i = 1; i <= Weather.list.length; i++){
+      for (let i = 0; i <= Weather.list.length; i++){
         if (Weather.list[i]) {
           let txt = Weather.list[i].dt_txt.split(' ')[1]
-          if (txt === '12:00:00') {
+          let date = Weather.list[i].dt_txt.split(' ')[0].slice(-2)
+          console.log(date)
+          const d = new Date()
+          const str = d.toLocaleDateString().slice(0,2)
+          if (txt === '00:00:00' && date !== str  ) {
             lis.push(Weather.list[i])
           }
         }

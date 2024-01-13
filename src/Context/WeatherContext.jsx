@@ -8,7 +8,9 @@ export default function WeatherProvider({ children }) {
     const [City, setCity] = useState('mumbai')
     const [loading, setLoading] = useState(true)
     const [Weather, setWeather] = useState('')
-    const [error,setError] = useState('')
+    const [error, setError] = useState('')
+    
+    console.log(Weather)
     
     useEffect(() => {
         const fetchWeather = async () => {

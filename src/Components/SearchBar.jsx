@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 
 export default function () {
-    const { location, setLocation, setCity, loading,setError } = useContext(WeatherContext)
+    const { location, setLocation, setCity, loading,setError,Weather } = useContext(WeatherContext)
     
     const handleClick = () =>{
         let regex = /^[a-zA-Z]+$/;
@@ -18,8 +18,8 @@ export default function () {
             setLocation('')
             setError('')
         }
-        else {
-            setError('Invalid city name')
+        if (Weather.message === 'city not found') {
+            setError("invalid city name")
         }
     }
 
@@ -32,9 +32,10 @@ export default function () {
                     setError('')
                 }
         }
-        else {
-            setError('Invalid car')   
-           }
+        if (Weather.message === 'city not found') {
+            setError("invalid city name")
+        }
+        
     }
    
     return (
