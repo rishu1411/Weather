@@ -52,7 +52,7 @@ const [Obj,setObj] = useState('')
   return (
     <div className='bg-gray-800 p-4 text-white text-sm rounded-md'>
       <h3 className='text-gray-400'>5 day Forecast</h3>
-    <div className='flex flex-col sm:flex-row gap-y-3 items-center justify-center gap-x-4'>
+    <div className='flex flex-wrap gap-y-3 items-center justify-center gap-x-4'>
       { loading && <Skeleton count={5}/> ||
           foreCast.map((item, key) => {
                       let SVG
