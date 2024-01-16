@@ -9,7 +9,7 @@ import { daySVG,nightSVG } from './data'
 
 
 export default function ForecastCard() {
-  const { Weather,loading } = useContext(WeatherContext)
+  const { Weather,loading,error } = useContext(WeatherContext)
   const [foreCast, setForeCast] = useState([])
 const [Obj,setObj] = useState('')
 // const [SVG,setSVG] = useState('')
@@ -32,7 +32,6 @@ const [Obj,setObj] = useState('')
         if (Weather.list[i]) {
           let txt = Weather.list[i].dt_txt.split(' ')[1]
           let date = Weather.list[i].dt_txt.split(' ')[0].slice(-2)
-          console.log(date)
           const d = new Date()
           const str = d.toLocaleDateString().slice(0,2)
           if (txt === '00:00:00' && date !== str  ) {
@@ -53,7 +52,7 @@ const [Obj,setObj] = useState('')
     <div className='bg-gray-800 p-4 text-white text-sm rounded-md'>
       <h3 className='text-gray-400'>5 day Forecast</h3>
     <div className='flex flex-wrap gap-y-3 items-center justify-center gap-x-4'>
-      { loading && <Skeleton count={5}/> ||
+      {error? <p className='text-center'>NA</p> : loading && <Skeleton count={5}/> ||
           foreCast.map((item, key) => {
                       let SVG
                       if (item.weather[0].main === 'Clear') {

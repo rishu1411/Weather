@@ -81,17 +81,15 @@ export default function InfoCard() {
   return (
 <>
     
-   { loading && <Skeleton count={1} /> || <section className={`${bg}  bg-no-repeat bg-center bg-cover  h-[75vh]  my-8 p-4 rounded-md flex flex-col justify-between`}>
+      {error?  <section className='bg-red-500 h-[75vh] rounded-md my-8 '>  <h3 className='text-2xl text-white p-4 capitalize'>{error}</h3> </section> : 
+        
+        loading && <Skeleton count={1} /> ||
+
+        <section className={`${bg}  bg-no-repeat bg-center bg-cover  h-[75vh]  my-8 p-4 rounded-md flex flex-col justify-between`}>
       <div className='flex items-center justify-between text-white'>
           <div className='self-start'>
-            {
-
-            }
-            {loading && <Skeleton /> ||
-              
-              error && !City? <h3 className='text-2xl text-red-500'>{ error}</h3> :
-              <h3 className='text-2xl'>{city}</h3>
-            }
+  
+            {loading && <Skeleton /> ||<h3 className='text-2xl'>{city}</h3>}
             {
               loading &&  <Skeleton count={1}/>||<p className='text-gray-300 text-sm'>{date }</p>
           }

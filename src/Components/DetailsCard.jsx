@@ -11,7 +11,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 
 export default function DetailsCard() {
-  const { Weather, loading, } = useContext(WeatherContext)
+  const { Weather, loading, error} = useContext(WeatherContext)
 let feelsLike,POP,windSpeed,humidity
   if (Weather.list) {
     feelsLike = Math.round(Weather.list[0].main.feels_like) - 273
@@ -63,7 +63,7 @@ let feelsLike,POP,windSpeed,humidity
                 }
               </div>
               {
-                loading && <Skeleton count={1}/> || <p className='font-bold'>{item.data}</p>
+                error? <p className='font-bold'>NA</p> : loading && <Skeleton count={1}/> || <p className='font-bold'>{item.data}</p>
               }
               
       </div>

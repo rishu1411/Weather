@@ -9,7 +9,7 @@ export default function page() {
   return (
     <SkeletonTheme baseColor='#22222f' highlightColor='#3b3b53'>
     <div className='m-4 flex flex-col lg:flex-row gap-x-4'>
-      <div className='flex-1'>
+      <div className='flex-1 gap-y-4'>
         <SearchBar />
         <InfoCard />
       </div>

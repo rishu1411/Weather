@@ -1,6 +1,6 @@
 'use client'
 import { WeatherContext } from '@/Context/WeatherContext'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -21,22 +21,31 @@ export default function () {
         if (Weather.message === 'city not found') {
             setError("invalid city name")
         }
+        else {
+            setError("invalid city name")
+            
+        }
     }
+    console.log(Weather)
 
     const handleKeyDown = (ev) => {
+        setError('')
         if (ev.key === 'Enter') {
             let regex = /^[a-zA-Z]+$/;
                 if (regex.test(location)) {
                     setCity(location)
                     setLocation('')
                     setError('')
-                }
+            }
         }
+    }
+    
+    useEffect(() => {
         if (Weather.message === 'city not found') {
             setError("invalid city name")
-        }
+        } 
         
-    }
+    },[Weather])
    
     return (
       <div className='flex gap-x-2'>
